@@ -20,8 +20,8 @@ RUN apk add --no-cache php7 \
         php7-ctype \
         php7-zlib \
         git \
-        unzip
-
+        unzip \
+        make
 
 RUN set -x \
     && addgroup -g 82 -S www-data \
