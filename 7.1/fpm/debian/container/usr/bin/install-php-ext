@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+PREFIX=php7.1
+PACKAGES=$(echo "$@" | sed "s/[^ ]* */$PREFIX-&/g")
+
+install-pkg $PACKAGES
