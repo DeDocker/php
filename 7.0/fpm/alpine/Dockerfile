@@ -1,29 +1,26 @@
 FROM alpine:edge
 
-RUN apk add --no-cache php7 \
-        php7-fpm \
-        php7-bz2 \
-        php7-curl \
-        php7-exif \
-        php7-iconv \
-        php7-mbstring \
-        php7-mcrypt \
-        php7-pdo \
-        php7-pdo_mysql \
-        php7-pdo_pgsql \
-        php7-openssl \
-        php7-json \
-        php7-phar \
-        php7-session \
-        php7-dom \
-        php7-gd \
-        php7-ctype \
-        php7-zlib \
-        git \
-        unzip \
-        make
-
 COPY container /
+
+RUN install-pkg php7 git unzip make
+RUN install-php-ext fpm \
+        bz2 \
+        curl \
+        exif \
+        iconv \
+        mbstring \
+        mcrypt \
+        pdo \
+        pdo_mysql \
+        pdo_pgsql \
+        openssl \
+        json \
+        phar \
+        session \
+        dom \
+        gd \
+        ctype \
+        zlib
 
 RUN set -x \
     && addgroup -g 82 -S www-data \
