@@ -17,6 +17,7 @@ RUN apk add --no-cache php5 \
         php5-gd \
         php5-ctype \
         php5-zlib \
+        php5-mysqli \
         git \
         unzip \
         make
