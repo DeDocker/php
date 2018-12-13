@@ -36,6 +36,7 @@ RUN apt-get update \
     && /build/cleanup.sh
 
 RUN mkdir -p /run/php && chown www-data:www-data /run/php
+RUN mkdir -p /var/www && chown www-data:www-data /var/www
 
 COPY container /
 
