@@ -29,6 +29,7 @@ RUN apt-get update \
         php7.3-dom \
         php7.3-gd \
         php7.3-ctype \
+        php7.3-zip \
         git \
         unzip \
         make \
