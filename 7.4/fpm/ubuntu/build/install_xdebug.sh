@@ -1,9 +1,8 @@
 #!/bin/sh -x
 
-docker-php-source extract && \
-docker-php-ext-get xdebug 2.8.0beta2 && \
-docker-php-ext-install xdebug && \
-docker-php-source delete
+apt-get update && apt-get install php-pear
+
+pecl install xdebug-beta && docker-php-ext-enable xdebug
 
 echo xdebug.remote_enable=1 >> $PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini; \
 echo xdebug.remote_autostart=0 >> $PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini; \
