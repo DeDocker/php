@@ -6,10 +6,6 @@ ONBUILD RUN test "$XDEBUG_ENABLED" = "1" && /build/install_xdebug.sh || echo "Sk
 ENV PHP_INI_DIR /etc/php/7.4/fpm
 
 COPY build /build
-COPY docker-php-ext-enable /usr/local/bin/
-
-RUN chmod +x /build/install_xdebug.sh
-RUN chmod +x /usr/local/bin/docker-php-ext-enable
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -40,7 +36,6 @@ RUN apt-get update \
         php7.4-ctype \
         php7.4-zip \
         php7.4-bcmath \
-        php7.4-dev \
         git \
         unzip \
         make \
