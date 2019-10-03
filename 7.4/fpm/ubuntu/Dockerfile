@@ -1,5 +1,10 @@
 FROM ubuntu:18.04
 
+ONBUILD ARG XDEBUG_ENABLED="0"
+ONBUILD RUN test "$XDEBUG_ENABLED" = "1" && /build/install_xdebug.sh || echo "Skipping Xdebug"
+
+ENV PHP_INI_DIR /etc/php/7.4/fpm
+
 COPY build /build
 
 RUN apt-get update \
