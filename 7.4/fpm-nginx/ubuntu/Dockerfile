@@ -46,7 +46,7 @@ RUN mkdir -p /run/php && chown www-data:www-data /run/php
 COPY container /
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+    && php composer-setup.php --install-dir=/usr/local/bin --version=1.10.16 --filename=composer \
     && php -r "unlink('composer-setup.php');"
 
 RUN mkdir -p /usr/src/app
