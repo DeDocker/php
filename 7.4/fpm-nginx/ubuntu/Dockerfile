@@ -38,10 +38,16 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     unzip \
     make \
     nginx \
+    libcap2-bin \
     && /build/cleanup.sh
 
 RUN rm /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default
 RUN mkdir -p /run/php && chown www-data:www-data /run/php
+
+# Make possible to run nginx on port 80 as user www-data
+RUN setcap 'cap_net_bind_service=+ep' /usr/sbin/nginx
+RUN mkdir -p /run/nginx && chown www-data:www-data /run/nginx
+RUN chown -R www-data:www-data /var/lib/nginx; chmod -R oug+rwX /var/lib/nginx
 
 COPY container /
 
@@ -56,5 +62,6 @@ EXPOSE 80
 
 COPY docker-entrypoint.sh /usr/bin
 RUN chmod +x /usr/bin/docker-entrypoint.sh
+
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD []
