@@ -38,6 +38,7 @@ RUN apt-get update \
         unzip \
         vim \
         ca-certificates \
+        dnsutils \
     && /build/cleanup.sh
 
 RUN rm /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default

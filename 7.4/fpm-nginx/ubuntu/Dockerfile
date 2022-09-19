@@ -47,7 +47,7 @@ RUN mkdir -p /run/php && chown www-data:www-data /run/php
 # Make possible to run nginx on port 80 as user www-data
 RUN setcap 'cap_net_bind_service=+ep' /usr/sbin/nginx
 RUN mkdir -p /run/nginx && chown www-data:www-data /run/nginx
-RUN chown -R www-data:www-data /var/lib/nginx; chmod -R oug+rwX /var/lib/nginx
+RUN chown -R www-data:www-data /var/lib/nginx; chmod -R oug+rwX /var/lib/nginx /var/log/nginx
 
 COPY container /
 
