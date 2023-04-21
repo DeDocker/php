@@ -9,36 +9,36 @@ COPY build /build
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        php8.1 \
-        php8.1-fpm \
-        php8.1-bcmath \
-        php8.1-bz2 \
-        php8.1-ctype \
-        php8.1-curl \
-        php8.1-dom \
-        php8.1-exif \
-        php8.1-gd \
-        php8.1-iconv \
-        php8.1-mbstring \
-        php8.1-pdo \
-        php8.1-pdo-mysql \
-        php8.1-pdo-pgsql \
-        php8.1-phar \
-        php8.1-redis \
-        php8.1-zip \
-        cron \
-        git \
-        curl \
-        libcap2-bin \
-        openssh-client \
-        make \
-        nginx \
-        sudo \
-        supervisor \
-        unzip \
-        vim \
-        ca-certificates \
-        dnsutils \
+    php8.1 \
+    php8.1-fpm \
+    php8.1-bcmath \
+    php8.1-bz2 \
+    php8.1-ctype \
+    php8.1-curl \
+    php8.1-dom \
+    php8.1-exif \
+    php8.1-gd \
+    php8.1-iconv \
+    php8.1-mbstring \
+    php8.1-pdo \
+    php8.1-pdo-mysql \
+    php8.1-pdo-pgsql \
+    php8.1-phar \
+    php8.1-redis \
+    php8.1-zip \
+    cron \
+    git \
+    curl \
+    libcap2-bin \
+    openssh-client \
+    make \
+    nginx \
+    sudo \
+    supervisor \
+    unzip \
+    vim \
+    ca-certificates \
+    dnsutils \
     && /build/cleanup.sh
 
 RUN rm /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default
